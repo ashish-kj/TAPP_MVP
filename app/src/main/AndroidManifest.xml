@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.d.tapp">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TAPP">
-        <activity android:name=".ResetPassword"></activity>
+        <activity android:name=".startpaymentActivity"></activity>
+        <activity android:name=".bridgeActivity" />
+        <activity android:name=".captureActivity" />
+        <activity android:name=".ResetPassword" />
         <activity android:name=".Register" />
         <activity android:name=".Login">
             <intent-filter>
@@ -19,6 +26,16 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.d.android.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
     </application>
 
 </manifest>

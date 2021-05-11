@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     AlertDialog.Builder resetAlert;
     LayoutInflater inflater;
+    Button scanButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         Button logout = findViewById(R.id.logoutBtn);
         verifyMsg=findViewById(R.id.verifyEmailMsg);
         verifyEmailBtn=findViewById(R.id.verifyEmailBtn);
+        scanButton = findViewById(R.id.scanButton);
 
         resetAlert = new AlertDialog.Builder(this);
         inflater=this.getLayoutInflater();
@@ -46,6 +48,12 @@ public class MainActivity extends AppCompatActivity {
             verifyEmailBtn.setVisibility(View.VISIBLE);
             verifyMsg.setVisibility(View.VISIBLE);
         }
+        scanButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openCaptureActivity();
+            }
+        });
 
         verifyEmailBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +78,11 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    public void openCaptureActivity(){
+        Intent intent = new Intent(this,captureActivity.class);
+        startActivity(intent);
     }
 
     @Override

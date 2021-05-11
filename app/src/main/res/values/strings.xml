@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TAPP</string>
+    <color name="custom">#f5f1ee</color>
+    <color name="custom_text">#a8958e</color>
 </resources>
